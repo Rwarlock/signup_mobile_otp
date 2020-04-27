@@ -1,4 +1,13 @@
 <?php
+
+// Localize Script
+
+wp_localize_script( 'otp_verify_script', 'otp_verify', array(
+                        'ajax_url' => admin_url( 'admin-ajax.php' ),
+                        'aj_demo_nonce' => wp_create_nonce('aj-demo-nonce') 	
+    ));
+
+
   // Add Scripts
   function smo_add_scripts(){
     // Add Main CSS
@@ -7,7 +16,6 @@
     wp_enqueue_script('jquery');
     // Add Main JS
     wp_enqueue_script('smo-main-script', plugins_url(). '/signup_mobile_otp/js/main.js');
-
   }
 
   add_action('wp_enqueue_scripts', 'smo_add_scripts');
