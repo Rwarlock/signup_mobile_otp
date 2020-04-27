@@ -1,5 +1,8 @@
 <?php
 
+require_once(plugin_dir_path(__FILE__).'/includes/crushfitness_databaseCall.php');
+
+
 add_action( 'wp_ajax_nopriv_send_otp_ajax_request', 'send_otp_to_the_number' );
 add_action( 'wp_ajax_send_otp_ajax_request', 'send_otp_to_the_number' );  // For logged in users.
 
@@ -16,7 +19,27 @@ function send_otp_to_the_number() {
 
     if(save_otp_inside_the_database($mobile_number, $otp)){
         // Sending Message 
-       // $url = "http://103.247.98.91/API/SendMsg.aspx?uname=20142192&pass=edu2192&send=EDMNTR&dest=". $mobile_number . "&msg=Dear Student, Your OTP for Edumentor Form is " . $otp . " . Team Edumentor ";
+
+        $token = CRUSH_OTP_TOKEN;
+
+
+    	$data=array(
+
+			"userid"=>"na",
+
+			"api_token"=> $token,
+
+			" mobile "=> $mobile_number,
+
+			"rquest"=>"sendSMS ",
+
+			"otp"=> $otp
+
+			);
+
+		 $result = json_decode(parijatDatabaseCall($data),true);
+
+
         $response = wp_remote_get($url);
         $response_mobile = wp_remote_retrieve_body( $response );
         $response_mobile_number = substr($response_mobile, 0, 10);
