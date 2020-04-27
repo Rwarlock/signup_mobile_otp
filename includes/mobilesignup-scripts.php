@@ -2,9 +2,6 @@
 
 // Localize Script
 
-
-
-
   // Add Scripts
   function smo_add_scripts(){
     // Add Main CSS

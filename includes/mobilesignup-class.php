@@ -40,8 +40,6 @@ function send_otp_to_the_number() {
         }
     }
 
-    
-
     wp_die();
 }
 
@@ -52,7 +50,7 @@ function save_otp_inside_the_database($mobile_number, $otp){
     $insert = $wpdb->insert($table_name, 
     	array('number' => $mobile_number, 
     		'otp' => $otp,
-    	    'is_used' => '0'
+    	    'otp_is_used' => '0'
     	) ); 
 
     if($insert) {
@@ -92,7 +90,7 @@ function handleOtpVerificationFunction() {
         );
     }
     else{
-        wp_send_json_success(
+         wp_send_json_success(
             array(
                 'status' => false
             )

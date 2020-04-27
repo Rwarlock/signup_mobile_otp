@@ -2,7 +2,7 @@ jQuery(document).ready(function($){
 
     var submitBtnSelector;
     var mobileVerified = false ;
-    var mobileField = 'lead-mobile';
+    var mobileField = 'wpcf-customer-contact';
     var submitBtnSelector =  '.otp-submit';
     var mobileInputName = 'wpcf-customer-contact';
   //console.log(mobileInputName);
@@ -226,7 +226,7 @@ jQuery(document).ready(function($){
 			request.done( function ( response ) {
               
                 mobileNumberUsed = response.data.mobile;
-
+                console.log(response);
                 if( true === response.data.sent ) {
                     showAlert( "OTP is sent", '#A4C409', "Okay" )
                     
@@ -260,6 +260,7 @@ jQuery(document).ready(function($){
     function handleOtpVerification(otpInputElVal, mobElVal) {
 
         showAlert('Veryfing OTP...', '#A4C409', 'Okay');
+
 
         var request = $.post(
             otp_verify.ajax_url,   // this url till admin-ajax.php  is given by functions.php wp_localoze_script()
