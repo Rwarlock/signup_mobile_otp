@@ -113,29 +113,30 @@ jQuery(document).ready(function($){
         });
         
     }
-/*$('.ihs-otp-btn').click(function(){
-  $('.otp-field').show();
-  $('.ihs-otp-btn').hide();
-  $('.verify-otp').show();
-});
-  
-$('.verify-otp').click(function(){
-  $('.verify-otp').hide();
- $('.otp-submit').show();
-});  */
+    
+		$('.ihs-otp-btn').click(function(){
+		  $('.otp-field').show();
+		  $('.ihs-otp-btn').hide();
+		  $('.verify-otp').show();
+		});
+		  
+		$('.verify-otp').click(function(){
+		  $('.verify-otp').hide();
+		 $('.otp-submit').show();
+		});  
 
- /*
-  function addRequiredInputFields() {
-        var mobileInputNm = mobileInputName;
-        
-        if(mobileInputNm) {
-            var mobInpSelector = 'input[name="' + mobileInputNm + '"]';
-            
-            htmlEl = createMobileInputAndOtherFields(mobileInputNm);
-            $(htmlEl.allOtpHtml).insertAfter(mobInpSelector);
+		 
+		  function addRequiredInputFields() {
+		        var mobileInputNm = mobileInputName;
+		        
+		        if(mobileInputNm) {
+		            var mobInpSelector = 'input[name="' + mobileInputNm + '"]';
+		            
+		            htmlEl = createMobileInputAndOtherFields(mobileInputNm);
+		            $(htmlEl.allOtpHtml).insertAfter(mobInpSelector);
 
-        }
-    }
+		        }
+		    }
 
 
     function createMobileInputAndOtherFields(mobileInputName) {
@@ -159,7 +160,7 @@ $('.verify-otp').click(function(){
         htmlEl.allOtpHtml = otpInputEl + sendOtpBtn + submitOtpBtn + resendOtpBtn;
         return htmlEl; 
     }
-*/
+
 
     function sendOtpAndCreateVerifyButton ( event ) {
         var mobEl = $('input[name="' + mobileInputName + '"]');
