@@ -18,9 +18,9 @@ function send_otp_to_the_number() {
     $otp =  rand(100000,999999);
 
     if(save_otp_inside_the_database($mobile_number, $otp)){
+        
         // Sending Message 
-
-        $token = CRUSH_OTP_TOKEN;
+        $token = "dc8df2b565ada07c61cdb2a3e237bea1";
 
 
     	$data=array(
@@ -37,18 +37,15 @@ function send_otp_to_the_number() {
 
 			);
 
-		 $result = json_decode(parijatDatabaseCall($data),true);
+		$result = json_decode(parijatDatabaseCall($data),true);
 
 
-        $response = wp_remote_get($url);
-        $response_mobile = wp_remote_retrieve_body( $response );
-        $response_mobile_number = substr($response_mobile, 0, 10);
-        if( $response_mobile_number == $mobile_number ) {
+        if( $result) {
             wp_send_json_success(
                 array(
-                    'mobile' => strval( $mobile_number ),
+                    'result' => $result,
                     'sent' => true,
-                    'response_body' => $response_mobile_number
+                    'otp' => $otp
                 )
             );
         }
@@ -57,7 +54,7 @@ function send_otp_to_the_number() {
                 array(
                     'mobile' => strval( $mobile_number ),
                     'sent' => false,
-                    'response' => $response_mobile_number
+                    'response' => $result
                 )
             );
         }
