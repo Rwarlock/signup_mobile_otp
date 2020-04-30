@@ -48,11 +48,11 @@ jQuery(document).ready(function($){
         '</div>';
 
         $( alertEl ).css( 'background', background );
-			$( alertContainer ).html( alertEl );
+            $( alertContainer ).html( alertEl );
 
-			$( '.oc-alert-pop-up-close' ).on( 'click', function ( event ) {
-				$( '.oc-alert-pop-up' ).fadeOut();
-			} );
+            $( '.oc-alert-pop-up-close' ).on( 'click', function ( event ) {
+                $( '.oc-alert-pop-up' ).fadeOut();
+            } );
 
     }
 
@@ -91,7 +91,7 @@ jQuery(document).ready(function($){
         // When resend OTP button is clicked.
         $('#ihs-resend-otp-btn-id').on('click', function(){
             reCreateSendOtpButton();
-			sendOtpAndCreateVerifyButton();
+            sendOtpAndCreateVerifyButton();
         });
 
 
@@ -114,29 +114,29 @@ jQuery(document).ready(function($){
         
     }
     
-		$('.ihs-otp-btn').click(function(){
-		  $('.otp-field').show();
-		  $('.ihs-otp-btn').hide();
-		  $('.verify-otp').show();
-		});
-		  
-		$('.verify-otp').click(function(){
-		  $('.verify-otp').hide();
-		 $('.otp-submit').show();
-		});  
+        $('.ihs-otp-btn').click(function(){
+          $('.otp-field').show();
+          $('.ihs-otp-btn').hide();
+          $('.verify-otp').show();
+        });
+          
+        $('.verify-otp').click(function(){
+          $('.verify-otp').hide();
+         $('.otp-submit').show();
+        });  
 
-		 
-		  function addRequiredInputFields() {
-		        var mobileInputNm = mobileInputName;
-		        
-		        if(mobileInputNm) {
-		            var mobInpSelector = 'input[name="' + mobileInputNm + '"]';
-		            
-		            htmlEl = createMobileInputAndOtherFields(mobileInputNm);
-		            $(htmlEl.allOtpHtml).insertAfter(mobInpSelector);
+         
+          function addRequiredInputFields() {
+                var mobileInputNm = mobileInputName;
+                
+                if(mobileInputNm) {
+                    var mobInpSelector = 'input[name="' + mobileInputNm + '"]';
+                    
+                    htmlEl = createMobileInputAndOtherFields(mobileInputNm);
+                    $(htmlEl.allOtpHtml).insertAfter(mobInpSelector);
 
-		        }
-		    }
+                }
+            }
 
 
     function createMobileInputAndOtherFields(mobileInputName) {
@@ -177,7 +177,7 @@ jQuery(document).ready(function($){
 
         if(!isNoError) {
             $( '#ihs-mobile-otp' ).removeClass( 'ihs-otp-hide' );
-			sendOtpAjaxRequest( mobElVal );
+            sendOtpAjaxRequest( mobElVal );
         }
 
     }
@@ -223,9 +223,9 @@ jQuery(document).ready(function($){
             }
         );
 
-			request.done( function ( response ) {
+            request.done( function ( response ) {
               
-                mobileNumberUsed = response.data.mobile;
+                
                 console.log(response);
                 if( true === response.data.sent ) {
                     showAlert( "OTP is sent", '#A4C409', "Okay" )
@@ -240,7 +240,7 @@ jQuery(document).ready(function($){
                     $( mobileInputSelector ).css( 'opacity', '0.5' );
                 }
 
-			} );
+            } );
 
     }
 
@@ -301,6 +301,6 @@ jQuery(document).ready(function($){
 
     }
 
-	init();
+    init();
  
  });
